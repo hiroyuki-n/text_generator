@@ -31,11 +31,11 @@
 		#result_area {
 			min-height: 300px;
 			height: auto;
-			background: #eee;
+			border: solid 1px #666;
 			padding: 20px;
 			/*  */
 			width: 300px;
-			line-height: 2;
+			line-height: 1.5;
 			letter-spacing: 0em;
 			text-align: left;
 		}
@@ -66,9 +66,9 @@
 				<input type="range" id="width" min="10" max="1000" step="10" value="300" oninput="generator()">
 				<input type="number" id="tw" value="300">
 			</div>
-			<div class="item">ine-height:<br>
-				<input type="range" id="lineheight" min="1" max="10" step="0.1" value="2" oninput="generator()">
-				<input type="text" id="lh" value="2">
+			<div class="item">line-height:<br>
+				<input type="range" id="lineheight" min="1" max="10" step="0.1" value="1.5" oninput="generator()">
+				<input type="text" id="lh" value="1.5">
 			</div>
 			<div class="item">letter-spacing:<br>
 				<input type="range" id="letterspacing" min="0" max="10" step="0.01" value="0" oninput="generator()">
