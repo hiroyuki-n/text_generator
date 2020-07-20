@@ -4,9 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>テキストジェネレーター</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+		rel="stylesheet">
 	<style>
 		body {
 			padding: 40px;
+			font-family: 'Noto Sans JP', sans-serif;
 		}
 
 		main {
@@ -35,6 +38,8 @@
 			padding: 20px;
 			/*  */
 			width: 300px;
+			font-size: 16px;
+			font-weight: 400;
 			line-height: 1.5;
 			letter-spacing: 0em;
 			text-align: left;
@@ -57,6 +62,7 @@
 
 		.code_area #code {
 			padding: 10px;
+
 		}
 	</style>
 </head>
@@ -65,51 +71,72 @@
 	<main>
 		<div class="generator">
 			<div class="item">Width:<br>
-				<input type="range" id="width" min="10" max="1000" step="10" value="300" oninput="generator()">
+				<input type="range" id="width" min="10" max="1000" step="10" value="300" oninput="width_generator()">
 				<input type="number" id="tw" value="300">
 			</div>
 			<div class="item">font-size:<br>
-				<input type="range" id="fontsize" min="10" max="50" step="1" value="16" oninput="generator()">
+				<input type="range" id="fontsize" min="10" max="50" step="1" value="16" oninput="fontSize_generator()">
 				<input type="text" id="fs" value="16">
 			</div>
+			<div class="item">font-weight:<br>
+				<input type="range" id="fontweight" min="100" max="900" step="100" value="400"
+					oninput="fontWeight_generator()">
+				<input type="text" id="fw" value="400">
+			</div>
 			<div class="item">line-height:<br>
-				<input type="range" id="lineheight" min="1" max="3" step="0.1" value="1.5" oninput="generator()">
+				<input type="range" id="lineheight" min="1" max="3" step="0.1" value="1.5"
+					oninput="lineHeight_generator()">
 				<input type="text" id="lh" value="1.5">
 			</div>
 			<div class="item">letter-spacing:<br>
-				<input type="range" id="letterspacing" min="0" max="1" step="0.01" value="0" oninput="generator()">
+				<input type="range" id="letterspacing" min="-0.2" max="0.5" step="0.01" value="0"
+					oninput="letterSpacing_generator()">
 				<input type="text" id="ls" value="0">
 			</div>
 			<div class="item">
 				text-align:
 				<form id="textalign">
-					<input type="radio" name="ta" value="left" oninput="generator()" checked>left
-					<input type="radio" name="ta" value="center" oninput="generator()">center
-					<input type="radio" name="ta" value="right" oninput="generator()">right
-					<input type="radio" name="ta" value="justify" oninput="generator()">justify
+					<input type="radio" name="ta" value="left" oninput="textAlign_generator()" checked>left
+					<input type="radio" name="ta" value="center" oninput="textAlign_generator()">center
+					<input type="radio" name="ta" value="right" oninput="textAlign_generator()">right
+					<input type="radio" name="ta" value="justify" oninput="textAlign_generator()">justify
 				</form>
 			</div>
 			<div class="item">
 				font-feature-settings:
 				<form id="fontfeaturesettings">
-					<input type="radio" name="ffs" value="initial" oninput="generator()" checked>initial
-					<input type="radio" name="ffs" value='"palt"' oninput="generator()">palt
-					<input type="radio" name="ffs" value='"pwid"' oninput="generator()">pwid
-					<input type="radio" name="ffs" value='"pkna"' oninput="generator()">pkna
+					<input type="radio" name="ffs" value="initial" oninput="fontFeatureSettings_generator()"
+						checked>initial
+					<input type="radio" name="ffs" value='"palt"' oninput="fontFeatureSettings_generator()">palt
+					<input type="radio" name="ffs" value='"pwid"' oninput="fontFeatureSettings_generator()">pwid
+					<input type="radio" name="ffs" value='"pkna"' oninput="fontFeatureSettings_generator()">pkna
 				</form>
 			</div>
 		</div>
 		<div class="result">
 			<div class="code_area">
 				コード
-				<div id="code">
+				<div id="width_code">width: 300px;</div>
+				<div id="fontSize_code"></div>
+				<div id="fontWeight_code"></div>
+				<div id="lineHeight_code"></div>
+				<div id="letterSpacing_code"></div>
+				<div id="textAlign_code"></div>
+				<div id="fontFeatureSettings_code"></div>
+
+
+
+
+
+				<!-- <div id="code">
 					width: 300px;<br>
 					font-size: 16px;<br>
+					font-weight: 400;<br>
 					line-height: 1.5;<br>
 					letter-spacing: 0em;<br>
 					text-align: left;<br>
 					font-feature-settings: none;
-				</div>
+				</div> -->
 			</div>
 			<div id="result_area">
 				テキスト周りのCSSジェネレーターです。<br>
@@ -124,37 +151,60 @@
 	</main>
 	<script>
 		const result_area = document.getElementById("result_area");
-		function generator() {
-
+		//===
+		function width_generator() {
 			const width = document.getElementById("width").value;
-			const fontsize = document.getElementById("fontsize").value;
-			const lineheight = document.getElementById("lineheight").value;
-			const letterspacing = document.getElementById("letterspacing").value;
+			document.getElementById("tw").value = width;
+			result_area.style.width = width + "px";
+			document.getElementById("width_code").innerHTML = 'width: ' + width + 'px';
 
-			//ラジオボタン
+		}
+		//===
+		function fontSize_generator() {
+			const fontsize = document.getElementById("fontsize").value;
+			document.getElementById("fs").value = fontsize;
+			result_area.style.fontSize = fontsize + "px";
+			document.getElementById("fontSize_code").innerHTML = 'font-size: ' + fontsize + 'px;';
+
+		}
+		//===
+		function fontWeight_generator() {
+			const fontweight = document.getElementById("fontweight").value;
+			document.getElementById("fw").value = fontweight;
+			result_area.style.fontWeight = fontweight;
+			document.getElementById("fontWeight_code").innerHTML = 'font-weight: ' + fontweight + ';';
+		}
+		//===
+		function lineHeight_generator() {
+			const lineheight = document.getElementById("lineheight").value;
+			document.getElementById("lh").value = lineheight;
+			result_area.style.lineHeight = lineheight;
+			document.getElementById("lineHeight_code").innerHTML = 'line-height: ' + lineheight + ';';
+
+		}
+		//===
+		function letterSpacing_generator() {
+			const letterspacing = document.getElementById("letterspacing").value;
+			document.getElementById("ls").value = letterspacing;
+			result_area.style.letterSpacing = letterspacing + "em";
+			document.getElementById("letterSpacing_code").innerHTML = 'letter-spacing: ' + letterspacing + 'em;';
+
+		}
+		//===
+		function textAlign_generator() {
 			const textalign = document.getElementById("textalign");
 			const ta = textalign.ta;
 			const ta_value = ta.value;
-
-			//ラジオボタン
+			result_area.style.textAlign = ta_value;
+			document.getElementById("textAlign_code").innerHTML = 'text-align: ' + ta_value + ';';
+		}
+		//===
+		function fontFeatureSettings_generator() {
 			const fontfeaturesettings = document.getElementById("fontfeaturesettings");
 			const ffs = fontfeaturesettings.ffs;
 			const ffs_value = ffs.value;
-			console.log(ffs_value)
-
-			document.getElementById("tw").value = width;
-			document.getElementById("fs").value = fontsize;
-			document.getElementById("lh").value = lineheight;
-			document.getElementById("ls").value = letterspacing;
-
-			result_area.style.width = width + "px";
-			result_area.style.fontSize = fontsize + "px";
-			result_area.style.lineHeight = lineheight;
-			result_area.style.letterSpacing = letterspacing + "em";
-			result_area.style.textAlign = ta_value;
 			result_area.style.fontFeatureSettings = ffs_value;
-
-			document.getElementById("code").innerHTML = 'width: ' + width + 'px;<br>font-size: ' + fontsize + 'px;<br>line-height: ' + lineheight + ';<br>letter-spacing: ' + letterspacing + 'em;<br>text-align: ' + ta_value + ';<br>font-feature-settings: ' + ffs_value + ';';
+			document.getElementById("fontFeatureSettings_code").innerHTML = 'font-feature-settings: ' + ffs_value + ';';
 		}
 
 	</script>
