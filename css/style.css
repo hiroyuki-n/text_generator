@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+body {
+  color: #333;
+  background: #fafafa;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 60px 20px; }
+  body a {
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s; }
+    body a:link, body a:hover, body a:active, body a:focus {
+      color: #333; }
+    body a:hover {
+      opacity: 0.6; }
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: flex-start; }
+
+.generator {
+  width: 400px;
+  padding: 20px;
+  margin-right: 20px;
+  border: solid 1px #666; }
+
+.item {
+  margin-bottom: 20px; }
+  .item .code_txt {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0.5em; }
+    .item .code_txt span {
+      padding-left: 0.3em; }
+
+#result_area {
+  min-height: 300px;
+  height: auto;
+  border: solid 1px #666;
+  padding: 20px;
+  /*  */
+  width: 300px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0em;
+  text-align: left;
+  font-feature-settings: initial;
+  font-style: normal;
+  text-decoration: none; }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(51, 51, 51, 0.4);
+  cursor: pointer; }
+  input[type="range"]:focus, input[type="range"]:active {
+    outline: none; }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: none;
+    background-color: #333;
+    border-radius: 100%;
+    cursor: pointer; }
+
+input[type="radio"] {
+  display: none; }
+  input[type="radio"] + label {
+    display: inline-block;
+    font-size: 13px;
+    color: #333;
+    padding: 0.1em 0.8em 0.3em;
+    border-radius: 10em;
+    border: solid 1px #333;
+    cursor: pointer; }
+  input[type="radio"]:checked + label {
+    border: solid 1px #333;
+    color: #fafafa;
+    background: #333; }
+
+.code_area {
+  font-size: 14px;
+  width: 300px;
+  padding: 20px;
+  border: solid 1px #666;
+  line-height: 1.4;
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=style.css.map */

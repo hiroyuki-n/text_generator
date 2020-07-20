@@ -1,0 +1,137 @@
+@charset "utf-8";
+// ================================
+// カラー
+// ================================
+$color_white: #fafafa;
+$color_black: #333;
+
+// ================================
+// リセット
+// ================================
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+// ================================
+// ベース
+// ================================
+body {
+    color: $color_black;
+    background: $color_white;
+    font-family: "Noto Sans JP", sans-serif;
+
+    padding: 60px 20px;
+
+    a {
+        color: $color_black;
+        text-decoration: none;
+        transition: 0.3s;
+        &:link,
+        &:hover,
+        &:active,
+        &:focus {
+            color: $color_black;
+        }
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+main {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.generator {
+    width: 400px;
+    padding: 20px;
+    margin-right: 20px;
+    border: solid 1px #666;
+}
+
+.item {
+    margin-bottom: 20px;
+
+    .code_txt {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        span {
+            padding-left: 0.3em;
+        }
+    }
+}
+
+#result_area {
+    min-height: 300px;
+    height: auto;
+    border: solid 1px #666;
+    padding: 20px;
+    /*  */
+    width: 300px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: left;
+    font-feature-settings: initial;
+    font-style: normal;
+    text-decoration: none;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background-color: rgba($color_black, 0.4);
+    cursor: pointer;
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: none;
+        background-color: $color_black;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+}
+
+input[type="radio"] {
+    display: none;
+    & + label {
+        display: inline-block;
+        font-size: 13px;
+        color: $color_black;
+        padding: 0.1em 0.8em 0.3em;
+        border-radius: 10em;
+        border: solid 1px $color_black;
+        cursor: pointer;
+    }
+    &:checked {
+        & + label {
+            border: solid 1px $color_black;
+            color: $color_white;
+            background: $color_black;
+        }
+    }
+}
+.code_area {
+    font-size: 14px;
+    width: 300px;
+    padding: 20px;
+    border: solid 1px #666;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}

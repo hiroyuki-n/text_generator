@@ -6,131 +6,95 @@
 	<title>テキストジェネレーター</title>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
 		rel="stylesheet">
-	<style>
-		body {
-			padding: 40px;
-			font-family: 'Noto Sans JP', sans-serif;
-		}
+	<link rel="stylesheet" href="css/style.css" />
 
-		main {
-			width: 100%;
-			display: flex;
-			align-items: flex-start;
-		}
 
-		.generator {
-			width: 400px;
-			padding: 20px;
-			margin-right: 20px;
-			border: solid 1px #666;
-		}
-
-		.item {
-			font-size: 14px;
-			margin-bottom: 5px;
-			padding-bottom: 5px;
-			border-bottom: solid 1px #ccc;
-		}
-
-		#result_area {
-			min-height: 300px;
-			height: auto;
-			border: solid 1px #666;
-			padding: 20px;
-			/*  */
-			width: 300px;
-			font-size: 16px;
-			font-weight: 400;
-			line-height: 1.5;
-			letter-spacing: 0em;
-			text-align: left;
-			font-feature-settings: initial;
-			font-style: normal;
-			text-decoration: none;
-
-		}
-
-		input[type="range"] {
-			cursor: pointer;
-			width: 100%;
-		}
-
-		.code_area {
-			font-size: 14px;
-			width: 300px;
-			padding: 20px;
-			border: solid 1px #666;
-			line-height: 1.4;
-			margin-bottom: 20px;
-		}
-	</style>
 </head>
 
 <body>
+	<h1>CSSテキストジェネレーター</h1>
 	<main>
 		<div class="generator">
-			<div class="item">width:<span id="txt_width">300</span>px;<br>
-				<input type="range" id="generator_width" min="10" max="1000" step="10" value="300"
+			<div class="item">
+				<div class="code_txt">width:<span id="txt_width">300</span>px;</div>
+				<input type="range" id="generator_width" min="200" max="800" step="10" value="300"
 					oninput="width_generator()">
 			</div>
-			<div class="item">font-size:<span id="txt_fontSize">16</span>px;<br>
+			<div class="item">
+				<div class="code_txt">font-size:<span id="txt_fontSize">16</span>px;</div>
 				<input type="range" id="generator_fontSize" min="10" max="50" step="1" value="16"
 					oninput="fontSize_generator()">
 			</div>
-			<div class="item">font-weight:<span id="txt_fontWeight">400</span>;<br>
+			<div class="item">
+				<div class="code_txt">font-weight:<span id="txt_fontWeight">400</span>;</div>
 				<input type="range" id="generator_fontWeight" min="100" max="900" step="100" value="400"
 					oninput="fontWeight_generator()">
 			</div>
-			<div class="item">line-height:<span id="txt_lineHeight">1.5</span>;<br>
+			<div class="item">
+				<div class="code_txt">line-height:<span id="txt_lineHeight">1.5</span>;</div>
 				<input type="range" id="generator_lineHeight" min="1" max="3" step="0.1" value="1.5"
 					oninput="lineHeight_generator()">
 			</div>
-			<div class="item">letter-spacing:<span id="txt_letterSpacing">0</span>em;<br>
+			<div class="item">
+				<div class="code_txt">letter-spacing:<span id="txt_letterSpacing">0</span>em;</div>
 				<input type="range" id="generator_letterSpacing" min="-0.2" max="0.5" step="0.01" value="0"
 					oninput="letterSpacing_generator()">
 			</div>
 			<div class="item">
-				text-align:<span id="txt_textAlign">left</span>;
+				<div class="code_txt">text-align:<span id="txt_textAlign">left</span>;</div>
 				<form id="generator_textAlign">
-					<input type="radio" name="btn_textAlign" value="left" oninput="textAlign_generator()" checked>left
-					<input type="radio" name="btn_textAlign" value="center" oninput="textAlign_generator()">center
-					<input type="radio" name="btn_textAlign" value="right" oninput="textAlign_generator()">right
-					<input type="radio" name="btn_textAlign" value="justify" oninput="textAlign_generator()">justify
+					<input type="radio" name="btn_textAlign" id="left" value="left" oninput="textAlign_generator()"
+						checked>
+					<label for="left">left</label>
+					<input type="radio" name="btn_textAlign" id="center" value="center" oninput="textAlign_generator()">
+					<label for="center">center</label>
+					<input type="radio" name="btn_textAlign" id="right" value="right" oninput="textAlign_generator()">
+					<label for="right">right</label>
+					<input type="radio" name="btn_textAlign" id="justify" value="justify"
+						oninput="textAlign_generator()">
+					<label for="justify">justify</label>
 				</form>
 			</div>
 
 			<div class="item">
-				font-feature-settings:<span id="txt_fontFeatureSettings">left</span>;
+				<div class="code_txt">font-feature-settings:<span id="txt_fontFeatureSettings">initial</span>;</div>
 				<form id="generator_fontFeatureSettings">
-					<input type="radio" name="btn_fontFeatureSettings" value="initial"
-						oninput="fontFeatureSettings_generator()" checked>initial
-					<input type="radio" name="btn_fontFeatureSettings" value='"palt"'
-						oninput="fontFeatureSettings_generator()">palt
+					<input type="radio" name="btn_fontFeatureSettings" id="initial" value="initial"
+						oninput="fontFeatureSettings_generator()" checked>
+					<label for="initial">initial</label>
+					<input type="radio" name="btn_fontFeatureSettings" id="palt" value='"palt"'
+						oninput="fontFeatureSettings_generator()">
+					<label for="palt">palt</label>
 				</form>
 			</div>
 
 
 			<div class="item">
-				font-style:<span id="txt_fontStyle">normal</span>;
+				<div class="code_txt">font-style:<span id="txt_fontStyle">normal</span>;</div>
 				<form id="generator_fontStyle">
-					<input type="radio" name="btn_fontStyle" value="normal" oninput="fontStyle_generator()"
-						checked>normal
-					<input type="radio" name="btn_fontStyle" value="italic" oninput="fontStyle_generator()">italic
+					<input type="radio" name="btn_fontStyle" id="normal" value="normal" oninput="fontStyle_generator()"
+						checked>
+					<label for="normal">normal</label>
+					<input type="radio" name="btn_fontStyle" id="italic" value="italic" oninput="fontStyle_generator()">
+					<label for="italic">italic</label>
 				</form>
 			</div>
 
 
 
 			<div class="item">
-				text-decoration:<span id="txt_textDecoration">none</span>;
+				<div class="code_txt">text-decoration:<span id="txt_textDecoration">none</span>;</div>
 				<form id="generator_textDecoration">
-					<input type="radio" name="btn_textDecoration" value="none" oninput="textDecoration_generator()"
-						checked>none
-					<input type="radio" name="btn_textDecoration" value="underline"
-						oninput="textDecoration_generator()">underline
+					<input type="radio" name="btn_textDecoration" id="none" value="none"
+						oninput="textDecoration_generator()" checked>
+					<label for="none">none</label>
+					<input type="radio" name="btn_textDecoration" id="underline" value="underline"
+						oninput="textDecoration_generator()">
+					<label for="underline">underline</label>
 
-					<input type="radio" name="btn_textDecoration" value="line-through"
-						oninput="textDecoration_generator()">line-through
+					<input type="radio" name="btn_textDecoration" id="line-through" value="line-through"
+						oninput="textDecoration_generator()">
+					<label for="line-through">line-through</label>
 				</form>
 			</div>
 
