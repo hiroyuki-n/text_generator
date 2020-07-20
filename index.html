@@ -26,8 +26,9 @@
 		}
 
 		.item {
-			margin-bottom: 20px;
-			padding-bottom: 20px;
+			font-size: 14px;
+			margin-bottom: 5px;
+			padding-bottom: 5px;
 			border-bottom: solid 1px #ccc;
 		}
 
@@ -44,6 +45,8 @@
 			letter-spacing: 0em;
 			text-align: left;
 			font-feature-settings: initial;
+			font-style: normal;
+			text-decoration: none;
 
 		}
 
@@ -53,16 +56,12 @@
 		}
 
 		.code_area {
+			font-size: 14px;
 			width: 300px;
 			padding: 20px;
 			border: solid 1px #666;
 			line-height: 1.4;
 			margin-bottom: 20px;
-		}
-
-		.code_area #code {
-			padding: 10px;
-
 		}
 	</style>
 </head>
@@ -70,7 +69,7 @@
 <body>
 	<main>
 		<div class="generator">
-			<div class="item">width:<span id="txt_width">400</span>px;<br>
+			<div class="item">width:<span id="txt_width">300</span>px;<br>
 				<input type="range" id="generator_width" min="10" max="1000" step="10" value="300"
 					oninput="width_generator()">
 			</div>
@@ -99,6 +98,7 @@
 					<input type="radio" name="btn_textAlign" value="justify" oninput="textAlign_generator()">justify
 				</form>
 			</div>
+
 			<div class="item">
 				font-feature-settings:<span id="txt_fontFeatureSettings">left</span>;
 				<form id="generator_fontFeatureSettings">
@@ -108,17 +108,47 @@
 						oninput="fontFeatureSettings_generator()">palt
 				</form>
 			</div>
+
+
+			<div class="item">
+				font-style:<span id="txt_fontStyle">normal</span>;
+				<form id="generator_fontStyle">
+					<input type="radio" name="btn_fontStyle" value="normal" oninput="fontStyle_generator()"
+						checked>normal
+					<input type="radio" name="btn_fontStyle" value="italic" oninput="fontStyle_generator()">italic
+				</form>
+			</div>
+
+
+
+			<div class="item">
+				text-decoration:<span id="txt_textDecoration">none</span>;
+				<form id="generator_textDecoration">
+					<input type="radio" name="btn_textDecoration" value="none" oninput="textDecoration_generator()"
+						checked>none
+					<input type="radio" name="btn_textDecoration" value="underline"
+						oninput="textDecoration_generator()">underline
+
+					<input type="radio" name="btn_textDecoration" value="line-through"
+						oninput="textDecoration_generator()">line-through
+				</form>
+			</div>
+
+
+
 		</div>
 		<div class="result">
 			<div class="code_area">
 				コード
-				<div id="width_code">width: 300px;</div>
-				<div id="fontSize_code"></div>
-				<div id="fontWeight_code"></div>
-				<div id="lineHeight_code"></div>
-				<div id="letterSpacing_code"></div>
-				<div id="textAlign_code"></div>
-				<div id="fontFeatureSettings_code"></div>
+				<div id="code_width">width: 300px;</div>
+				<div id="code_fontSize"></div>
+				<div id="code_fontWeight"></div>
+				<div id="code_lineHeight"></div>
+				<div id="code_letterSpacing"></div>
+				<div id="code_textAlign"></div>
+				<div id="code_fontFeatureSettings"></div>
+				<div id="code_fontStyle"></div>
+				<div id="code_textDecoration"></div>
 			</div>
 			<div id="result_area">
 				テキスト周りのCSSジェネレーターです。<br>
