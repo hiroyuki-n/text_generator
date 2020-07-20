@@ -70,46 +70,42 @@
 <body>
 	<main>
 		<div class="generator">
-			<div class="item">width:<span id="txt_width">300</span>;<br>
-				<input type="range" id="range_width" min="10" max="1000" step="10" value="300"
+			<div class="item">width:<span id="txt_width">400</span>px;<br>
+				<input type="range" id="generator_width" min="10" max="1000" step="10" value="300"
 					oninput="width_generator()">
 			</div>
-			<div class="item">font-size:<br>
-				<input type="range" id="fontsize" min="10" max="50" step="1" value="16" oninput="fontSize_generator()">
-				<input type="text" id="fs" value="16">
+			<div class="item">font-size:<span id="txt_fontSize">16</span>px;<br>
+				<input type="range" id="generator_fontSize" min="10" max="50" step="1" value="16"
+					oninput="fontSize_generator()">
 			</div>
-			<div class="item">font-weight:<br>
-				<input type="range" id="fontweight" min="100" max="900" step="100" value="400"
+			<div class="item">font-weight:<span id="txt_fontWeight">400</span>;<br>
+				<input type="range" id="generator_fontWeight" min="100" max="900" step="100" value="400"
 					oninput="fontWeight_generator()">
-				<input type="text" id="fw" value="400">
 			</div>
-			<div class="item">line-height:<br>
-				<input type="range" id="lineheight" min="1" max="3" step="0.1" value="1.5"
+			<div class="item">line-height:<span id="txt_lineHeight">1.5</span>;<br>
+				<input type="range" id="generator_lineHeight" min="1" max="3" step="0.1" value="1.5"
 					oninput="lineHeight_generator()">
-				<input type="text" id="lh" value="1.5">
 			</div>
-			<div class="item">letter-spacing:<br>
-				<input type="range" id="letterspacing" min="-0.2" max="0.5" step="0.01" value="0"
+			<div class="item">letter-spacing:<span id="txt_letterSpacing">0</span>em;<br>
+				<input type="range" id="generator_letterSpacing" min="-0.2" max="0.5" step="0.01" value="0"
 					oninput="letterSpacing_generator()">
-				<input type="text" id="ls" value="0">
 			</div>
 			<div class="item">
-				text-align:
-				<form id="textalign">
-					<input type="radio" name="ta" value="left" oninput="textAlign_generator()" checked>left
-					<input type="radio" name="ta" value="center" oninput="textAlign_generator()">center
-					<input type="radio" name="ta" value="right" oninput="textAlign_generator()">right
-					<input type="radio" name="ta" value="justify" oninput="textAlign_generator()">justify
+				text-align:<span id="txt_textAlign">left</span>;
+				<form id="generator_textAlign">
+					<input type="radio" name="btn_textAlign" value="left" oninput="textAlign_generator()" checked>left
+					<input type="radio" name="btn_textAlign" value="center" oninput="textAlign_generator()">center
+					<input type="radio" name="btn_textAlign" value="right" oninput="textAlign_generator()">right
+					<input type="radio" name="btn_textAlign" value="justify" oninput="textAlign_generator()">justify
 				</form>
 			</div>
 			<div class="item">
-				font-feature-settings:
-				<form id="fontfeaturesettings">
-					<input type="radio" name="ffs" value="initial" oninput="fontFeatureSettings_generator()"
-						checked>initial
-					<input type="radio" name="ffs" value='"palt"' oninput="fontFeatureSettings_generator()">palt
-					<input type="radio" name="ffs" value='"pwid"' oninput="fontFeatureSettings_generator()">pwid
-					<input type="radio" name="ffs" value='"pkna"' oninput="fontFeatureSettings_generator()">pkna
+				font-feature-settings:<span id="txt_fontFeatureSettings">left</span>;
+				<form id="generator_fontFeatureSettings">
+					<input type="radio" name="btn_fontFeatureSettings" value="initial"
+						oninput="fontFeatureSettings_generator()" checked>initial
+					<input type="radio" name="btn_fontFeatureSettings" value='"palt"'
+						oninput="fontFeatureSettings_generator()">palt
 				</form>
 			</div>
 		</div>
@@ -123,20 +119,6 @@
 				<div id="letterSpacing_code"></div>
 				<div id="textAlign_code"></div>
 				<div id="fontFeatureSettings_code"></div>
-
-
-
-
-
-				<!-- <div id="code">
-					width: 300px;<br>
-					font-size: 16px;<br>
-					font-weight: 400;<br>
-					line-height: 1.5;<br>
-					letter-spacing: 0em;<br>
-					text-align: left;<br>
-					font-feature-settings: none;
-				</div> -->
 			</div>
 			<div id="result_area">
 				テキスト周りのCSSジェネレーターです。<br>
