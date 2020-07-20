@@ -12,12 +12,11 @@
 </head>
 
 <body>
-	<h1>CSSテキストジェネレーター</h1>
-	<main>
-		<div class="generator">
+	<div class="generator">
+		<div class="generator_area">
 			<div class="item">
-				<div class="code_txt">width:<span id="txt_width">300</span>px;</div>
-				<input type="range" id="generator_width" min="200" max="800" step="10" value="300"
+				<div class="code_txt">width:<span id="txt_width">500</span>px;</div>
+				<input type="range" id="generator_width" min="200" max="800" step="10" value="500"
 					oninput="width_generator()">
 			</div>
 			<div class="item">
@@ -55,7 +54,6 @@
 					<label for="justify">justify</label>
 				</form>
 			</div>
-
 			<div class="item">
 				<div class="code_txt">font-feature-settings:<span id="txt_fontFeatureSettings">initial</span>;</div>
 				<form id="generator_fontFeatureSettings">
@@ -67,8 +65,6 @@
 					<label for="palt">palt</label>
 				</form>
 			</div>
-
-
 			<div class="item">
 				<div class="code_txt">font-style:<span id="txt_fontStyle">normal</span>;</div>
 				<form id="generator_fontStyle">
@@ -101,30 +97,34 @@
 
 
 		</div>
-		<div class="result">
-			<div class="code_area">
-				コード
-				<div id="code_width">width: 300px;</div>
-				<div id="code_fontSize"></div>
-				<div id="code_fontWeight"></div>
-				<div id="code_lineHeight"></div>
-				<div id="code_letterSpacing"></div>
-				<div id="code_textAlign"></div>
-				<div id="code_fontFeatureSettings"></div>
-				<div id="code_fontStyle"></div>
-				<div id="code_textDecoration"></div>
-			</div>
-			<div id="result_area">
-				テキスト周りのCSSジェネレーターです。<br>
-				デザイナーとコーダーがより仲良くなるように作りました！<br>
-				フォントの種類も大切ですが、行間、文字間隔、サイズ、色、ジャンプ率など方がより重要です。<br>
-				ただ文字を打ち込んだだけのサイトやサービスをよく見かけますが、少しだけ文字組みにも気を配ることで見栄えがグッと良くなります。<br>
-				webの文字組みはできることが限られますが、それでもcssで色々とできますのでぜひ使ってみてください！
-
-			</div>
+		<div class="code_area">
+			<div class="title">コード</div>
+			<div id="code_width">width: 300px;</div>
+			<div id="code_fontSize"></div>
+			<div id="code_fontWeight"></div>
+			<div id="code_lineHeight"></div>
+			<div id="code_letterSpacing"></div>
+			<div id="code_textAlign"></div>
+			<div id="code_fontFeatureSettings"></div>
+			<div id="code_fontStyle"></div>
+			<div id="code_textDecoration"></div>
 		</div>
+	</div>
 
-	</main>
+
+	<div class="result">
+		<h1>CSSテキストジェネレーター</h1>
+
+		<div id="result_area">
+			テキスト周りのCSSジェネレーターです。<br>
+			デザイナーとコーダーがより仲良くなるように作りました！<br>
+			フォントの種類も大切ですが、行間、文字間隔、サイズ、色、ジャンプ率など方がより重要です。<br>
+			ただ文字を打ち込んだだけのサイトやサービスをよく見かけますが、少しだけ文字組みにも気を配ることで見栄えがグッと良くなります。<br>
+			webの文字組みはできることが限られますが、それでもcssで色々とできますのでぜひ使ってみてください！
+
+		</div>
+	</div>
+
 	<script type="text/javascript" src="js/style.js"></script>
 </body>
 
