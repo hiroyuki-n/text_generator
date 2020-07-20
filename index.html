@@ -70,9 +70,9 @@
 <body>
 	<main>
 		<div class="generator">
-			<div class="item">Width:<br>
-				<input type="range" id="width" min="10" max="1000" step="10" value="300" oninput="width_generator()">
-				<input type="number" id="tw" value="300">
+			<div class="item">width:<span id="txt_width">300</span>;<br>
+				<input type="range" id="range_width" min="10" max="1000" step="10" value="300"
+					oninput="width_generator()">
 			</div>
 			<div class="item">font-size:<br>
 				<input type="range" id="fontsize" min="10" max="50" step="1" value="16" oninput="fontSize_generator()">
@@ -149,65 +149,7 @@
 		</div>
 
 	</main>
-	<script>
-		const result_area = document.getElementById("result_area");
-		//===
-		function width_generator() {
-			const width = document.getElementById("width").value;
-			document.getElementById("tw").value = width;
-			result_area.style.width = width + "px";
-			document.getElementById("width_code").innerHTML = 'width: ' + width + 'px';
-
-		}
-		//===
-		function fontSize_generator() {
-			const fontsize = document.getElementById("fontsize").value;
-			document.getElementById("fs").value = fontsize;
-			result_area.style.fontSize = fontsize + "px";
-			document.getElementById("fontSize_code").innerHTML = 'font-size: ' + fontsize + 'px;';
-
-		}
-		//===
-		function fontWeight_generator() {
-			const fontweight = document.getElementById("fontweight").value;
-			document.getElementById("fw").value = fontweight;
-			result_area.style.fontWeight = fontweight;
-			document.getElementById("fontWeight_code").innerHTML = 'font-weight: ' + fontweight + ';';
-		}
-		//===
-		function lineHeight_generator() {
-			const lineheight = document.getElementById("lineheight").value;
-			document.getElementById("lh").value = lineheight;
-			result_area.style.lineHeight = lineheight;
-			document.getElementById("lineHeight_code").innerHTML = 'line-height: ' + lineheight + ';';
-
-		}
-		//===
-		function letterSpacing_generator() {
-			const letterspacing = document.getElementById("letterspacing").value;
-			document.getElementById("ls").value = letterspacing;
-			result_area.style.letterSpacing = letterspacing + "em";
-			document.getElementById("letterSpacing_code").innerHTML = 'letter-spacing: ' + letterspacing + 'em;';
-
-		}
-		//===
-		function textAlign_generator() {
-			const textalign = document.getElementById("textalign");
-			const ta = textalign.ta;
-			const ta_value = ta.value;
-			result_area.style.textAlign = ta_value;
-			document.getElementById("textAlign_code").innerHTML = 'text-align: ' + ta_value + ';';
-		}
-		//===
-		function fontFeatureSettings_generator() {
-			const fontfeaturesettings = document.getElementById("fontfeaturesettings");
-			const ffs = fontfeaturesettings.ffs;
-			const ffs_value = ffs.value;
-			result_area.style.fontFeatureSettings = ffs_value;
-			document.getElementById("fontFeatureSettings_code").innerHTML = 'font-feature-settings: ' + ffs_value + ';';
-		}
-
-	</script>
+	<script type="text/javascript" src="js/style.js"></script>
 </body>
 
 </html>
