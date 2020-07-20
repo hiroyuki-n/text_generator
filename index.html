@@ -93,9 +93,9 @@
 				font-feature-settings:
 				<form id="fontfeaturesettings">
 					<input type="radio" name="ffs" value="initial" oninput="generator()" checked>initial
-					<input type="radio" name="ffs" value="pwid" oninput="generator()">pwid
-					<input type="radio" name="ffs" value="palt" oninput="generator()">palt
-					<input type="radio" name="ffs" value="pkna" oninput="generator()">pkna
+					<input type="radio" name="ffs" value='"palt"' oninput="generator()">palt
+					<input type="radio" name="ffs" value='"pwid"' oninput="generator()">pwid
+					<input type="radio" name="ffs" value='"pkna"' oninput="generator()">pkna
 				</form>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 					line-height: 1.5;<br>
 					letter-spacing: 0em;<br>
 					text-align: left;<br>
-					font-feature-settings: initial;
+					font-feature-settings: none;
 				</div>
 			</div>
 			<div id="result_area">
@@ -152,7 +152,7 @@
 			result_area.style.lineHeight = lineheight;
 			result_area.style.letterSpacing = letterspacing + "em";
 			result_area.style.textAlign = ta_value;
-			result_area.style.fontFeatureSettings = '"' + ffs_value + '"';
+			result_area.style.fontFeatureSettings = ffs_value;
 
 			document.getElementById("code").innerHTML = 'width: ' + width + 'px;<br>font-size: ' + fontsize + 'px;<br>line-height: ' + lineheight + ';<br>letter-spacing: ' + letterspacing + 'em;<br>text-align: ' + ta_value + ';<br>font-feature-settings: ' + ffs_value + ';';
 		}
